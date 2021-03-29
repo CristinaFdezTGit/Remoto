@@ -36,3 +36,12 @@ body{
     font-family:Arial;
     font-size: 10px;
 }
+.cuerpo{
+    width: 20%;
+    height: 550px;
+    background-color: D0FA58;
+    margin: 20px 20px 20px 20px ;
+    float: left;
+    border:4px inset purple;
+    text-align:left;
+}
