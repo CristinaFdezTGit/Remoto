@@ -34,3 +34,11 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+table, th, td {
+  border: 1px solid; #000;
+   width: 80%;
+}
+caption {
+   padding: 0.3em;
+}
