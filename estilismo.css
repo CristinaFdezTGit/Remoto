@@ -1,0 +1,33 @@
+super {
+  	    height:100%;
+  	    border-color: #7F9DB9;
+	  	border-style: solid;
+	  	border-width: 3px;
+    }
+    .vertical {
+  	   vertical-align:top;
+    }  		
+	.content {
+		padding: 2px 2px 2px 5px;
+		text-align: left;
+		width: 100px;
+	}
+	.table1 {
+		padding: 2px 5px 2px 2px;
+	}
+	.input2 {
+		padding: 0.1em;
+		font-size: 100%;
+		background-color: white;
+		vertical-align: middle;
+	  	border-color: #7F9DB9;
+	  	border-style: solid;
+	  	border-width: 1px;
+	  	color: #00257e;
+	}
+	body{
+		background-color: #00F;
+		font-weight: bold;
+		color:#F00;
+	}
+	
