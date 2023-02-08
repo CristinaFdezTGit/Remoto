@@ -31,3 +31,22 @@ super {
 		color:#F00;
 	}
 	
+
+	h1 {
+		background-color: #00ff00
+		}
+
+	h2 {
+		background-color: transparent
+	}
+
+	p {background-color: rgb(250,0,255)}
+
+	#menu {
+	  padding:0;
+	  margin:0 auto;
+	  list-style-type:none;
+	  width:160px;
+	  height:312px;
+	  }
+	
