@@ -12,6 +12,7 @@
 <head>
 </head>
 <script type="text/javascript">
+
  var capaMensaje = 'mensaje';
  var capaOn = 'mainResult';
  //var capaOn = 'mensaje';   
@@ -22,11 +23,7 @@
 
 function seleccionarTodo () {	
     //alert("Entra en seleccionarTodo");
-	
 	var esChequeado = document.getElementById('modificaTodo').checked;
-	//alert("esChequeado: "+esChequeado);
-	
-	
 	var elementos = document.getElementsByName("modificado");
 	//alert("Hay " + elementos.length + " elementos con el nombre 'modificado'");
 	
@@ -64,23 +61,59 @@ function seleccionarTodo () {
 	}
 	   
   }
-	
-	
+		
 }
 
 function seleccionarUno (id) {
-    //alert("Entra en seleccionarUno");
 	nombreId ="modifica";
-	//alert("id es: "+id);
 	nombreId=nombreId+id;
-	//alert("nombreId es: "+nombreId);
-	//alert("id.value es: "+document.getElementById("modifica"+id).value);
-	// if(document.getElementById(nombreId).checked){
-	    // document.getElementById(nombreId).checked=false;
-	// }else{
-	   // document.getElementById(nombreId).checked=true;
-	// }
-    //alert("salgo...");
+}
+
+function agrupaDesagrupa(objeto, proceso, tipoCircuito){        
+		var accion = 'GestionTimeslots.do?';
+		var ocupacion = '<c:out value="${ocupacion}"/>';
+		//-- recogemos en un array el nº de elementos con el tag modificado
+		var elementos = document.getElementsByName("modificado");
+		var num=0;
+		var pos=0;
+		var tipo=objeto;//58856;
+		var vector= new Array();
+		var texto="";
+	    var nombreId ="";
+		var valorEnvio="";
+	    var valorNum ="";
+		for (x=0;x<elementos.length;x++){
+			nombreId ="modifica";
+			texto = texto + elementos[x].value + "\n"; 
+			valorNum = elementos[x].value;
+			nombreId=nombreId+valorNum;
+			if(document.getElementById(nombreId).checked){
+			   num = num+1;
+               valorEnvio= valorEnvio+valorNum+",";		
+               vector[pos]=valorNum;			   
+			   pos= pos +1;
+			}
+       	}
+	   accion=accion+'<%=refreshQueryString%>'+'&accion='+proceso+'&tipoCircuito='+tipoCircuito+'&ocupacion='+ocupacion+'&objetoID='+objeto+'&vector='+vector;
+	   
+	   document.getElementById('mensaje').innerHTML ="";
+	   var xhrArgs = {    
+             handleAs: "text",
+             preventCache: true,
+             url: accion,
+			 load: function(data) {    
+			         dojo.byId('datos').innerHTML = data;  
+					 callStopBusyIndicator(); 
+            },
+            error: function(error) {
+                    callStopBusyIndicator();
+                }
+    
+     }
+     dojo.byId("mensaje").innerHTML = "";
+     callStartBusyIndicator();
+     var deferred = dojo.xhrPost(xhrArgs);		
+	
 }
 
 
