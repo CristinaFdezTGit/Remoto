@@ -12,7 +12,76 @@
 <head>
 </head>
 <script type="text/javascript">
+ var capaMensaje = 'mensaje';
+ var capaOn = 'mainResult';
+ //var capaOn = 'mensaje';   
 
+ 
+ var sessionId = '<%= session.getId()%>';
+ var contextPath = '<%= request.getContextPath()%>';
+
+function seleccionarTodo () {	
+    //alert("Entra en seleccionarTodo");
+	
+	var esChequeado = document.getElementById('modificaTodo').checked;
+	//alert("esChequeado: "+esChequeado);
+	
+	
+	var elementos = document.getElementsByName("modificado");
+	//alert("Hay " + elementos.length + " elementos con el nombre 'modificado'");
+	
+	var texto="";
+	var nombreId ="";
+	var valorNum ="";
+	if(esChequeado){
+	  for (x=0;x<elementos.length;x++){
+	   nombreId ="modifica";
+	   //alert("nombreId es: "+nombreId);
+	   texto = texto + elementos[x].value + "\n"; 
+	   valorNum = elementos[x].value;
+	   //alert("valorNum_"+x+"_ es: "+valorNum);
+	   nombreId=nombreId+valorNum;
+	   //alert("nombreId+valorNum es: "+nombreId);
+	   // alert("nombreId es: "+document.getElementById(nombreId).checked);
+	   if(!document.getElementById(nombreId).checked){
+	      //alert("se chequea ");
+          document.getElementById(nombreId).checked=true; 		  
+	   }
+	 }
+	}else{
+	   for (x=0;x<elementos.length;x++){
+	   nombreId ="modifica";
+	   //alert("nombreId es: "+nombreId);
+	   texto = texto + elementos[x].value + "\n"; 
+	   valorNum = elementos[x].value;
+	   //alert("valorNum es: "+valorNum);
+	   nombreId=nombreId+valorNum;
+	   //alert("nombreId+valorNum es: "+nombreId);
+	   if(document.getElementById(nombreId).checked){
+	      //alert("se deschequea ");
+          document.getElementById(nombreId).checked=false; 		  
+	  }
+	}
+	   
+  }
+	
+	
+}
+
+function seleccionarUno (id) {
+    //alert("Entra en seleccionarUno");
+	nombreId ="modifica";
+	//alert("id es: "+id);
+	nombreId=nombreId+id;
+	//alert("nombreId es: "+nombreId);
+	//alert("id.value es: "+document.getElementById("modifica"+id).value);
+	// if(document.getElementById(nombreId).checked){
+	    // document.getElementById(nombreId).checked=false;
+	// }else{
+	   // document.getElementById(nombreId).checked=true;
+	// }
+    //alert("salgo...");
+}
 
 
 
