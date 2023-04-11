@@ -14,6 +14,12 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script type="text/javascript">
+	function enviar(){
+		alert("en enviar!!");
+	}
+
+</script>
 </head>
 <body>
 <div class="container">
@@ -33,7 +39,9 @@
 			<label>Teléfono:</label><f:input path="telefono" type="text" name="telefono" class="form-control" style="width:30%" placeholder="Teléfono"/>
 		</div>
 		<button type="submit" class="btn btn-default">Registrar</button>
-		
+		<br>
+		<input type="button" onclick="javascript:enviar();" value="Enviar datos">
+        
 	</f:form>
 	
 
