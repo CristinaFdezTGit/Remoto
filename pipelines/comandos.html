@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+   <script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <script type="text/javascript">
+     function showContent() {
+       let temp = document.getElementsByTagName("template")[0];
+       let clon = temp.content.cloneNode(true);
+       document.body.appendChild(clon);
+     }
+   </script>
+</head>
+
+<body>
+  <h1>Esto es una Prueba para todos</h1>
+
+<br>
+   <h1 align="center"> Esto es una Prueba </h1>
+   <br>
+   <h1 align="center" >Gestor Pedidos</h1>
+<br>
+<p class="estilo-css">Texto de prueba</p>
+<br>
+<div align="center">
+<a href="Controller?op=toFormulario"> Nuevo Producto </a>
+<br>
+<a href="Controller?op=doMostrar"> Consultar Pedidos </a>
+</div>
+<br>
+<button onclick="showContent()">Show hidden content</button>
+
+<template>
+  <h2>Flower</h2>
+  <img src="img_white_flower.jpg" width="214" height="204">
+</template>
+
+</body>
+</html>

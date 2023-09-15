@@ -2,30 +2,72 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<title>Obras</title>
    <script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
-   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   
+<script type="text/javascript">
+   
+ function mostrarArea(){
+   console.log("Estamos en mostrarArea!!");
+   //document.getElementById("elemento3").style.visibility = "visible";
+   $('#elemento3').css("visibility", "visible");
+   //document.getElementById("lista").style.display = "block";
+   $('#elemento1').hide();
+   $('#elemento3').show();
+ }
+ function mostrarCombo(){
+   console.log("Estamos en mostrarCombo!!");
+   $('#elemento1').css("display", "block");
+   $('#elemento3').css("visibility", "hidden");
+ }
+ function ocultarTodo(){
+  $('#elemento1').hide();
+   $('#elemento3').hide(); 
+ }
+</script>
 
 </head>
-<body>
-   <br>
-   <h1 align="center"> Esto es una Prueba </h1>
-   <br>
-   <h1 align="center" >Gestor Pedidos</h1>
-<br>
-<p class="estilo-css">Texto de prueba</p>
-<br>
 
-<div align="center">
-<a href="Controller?op=toFormulario"> Nuevo Producto </a>
-<br>
-<a href="Controller?op=doMostrar"> Consultar Pedidos </a>
-</div>
+<body>   
+   <figure id="imagenes"  style="display: inline-block">
+      <img src="cafe1.jpg" width="300" height="200" >
+      <img src="cafe1.jpg" width="300" height="200" >
+      <figcaption>Dos cafes</figcaption>
+   </figure>  
+    <br>
+    <div id="miAudio"  >
+       <h2>Elemento audio</h2>
+       <p> Pulsa en el boton de <strong>play</strong> para que suene:</p>
+      <audio controls autoplay>
+        <source src="horse.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <br>
+     <button onclick="javascript:mostrarCombo();">Mostrar Combo</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="javascript:mostrarArea();">Mostrar TextArea</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="ocultarTodo()">Ocultar</button>
+   <div id="elemento1" style="display:none;">
+      <fieldset>
+       <legend>Esto es un div oculto!!</legend>
+       <label for="cars">Elige un coche:</label>
+       <select name="cars" id="cars"  onchange="javascript:mostrarArea();" >
+         <option value="volvo">&nbsp;&nbsp;</option>
+         <option value="volvo">&nbsp;Volvo&nbsp;</option>
+         <option value="saab">&nbsp;Saab&nbsp;</option>
+         <option value="mercedes">&nbsp;Mercedes&nbsp;</option>
+         <option value="audi">&nbsp;Audi&nbsp;</option>
+       </select>
+      </fieldset>
+   </div>
+   <div id="elemento3" style="visibility:hidden;">
+     <fieldset>
+       <legend>Esto es un div oculto!!</legend>
+       <textarea>At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+     </fieldset>
+   </div>  
 
-     
-
-     
-   
 </body>
 </html>

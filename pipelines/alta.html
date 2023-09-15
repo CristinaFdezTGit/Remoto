@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Alta  del Formulario</title>
+   <script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+<script type="text/javascript">
+  function validar(){
+    console.log("Entra en validar!!");
+    var nombre=document.getElementById("nombre").value;
+    console.log(">>> nombre es:"+nombre);
+    $('#email').val('jeta@curso.com');
+    //document.getElementById("elemento1").style.display = "block"; 
+ }
+ function mostrarContenido() {
+   let temp = document.getElementsByTagName("template")[0];
+   let clon = temp.content.cloneNode(true);
+   document.body.appendChild(clon);
+ }
+ function mostrarLista(){
+   $('#lista').show();
+ }
+ function ocultarTodo(){
+  $('#lista').hide(); 
+  //$('#templatee').css("visibility", "hidden");
+  //document.getElementById("lista").style.display = "none";
+  //document.getElementById("lista").style.visibility = "visible";
+ }
+ function cambiarLista() {
+  const list = document.getElementsByTagName("UL")[0];
+  if(list.getElementsByTagName("li")[0].innerHTML=="Nescafe"){
+    list.getElementsByTagName("li")[1].innerHTML="Manzanilla";
+  }
+  if(list.getElementsByTagName("li")[1].innerHTML=="Manzanilla" && 
+    list.getElementsByTagName("li")[2].innerHTML=="Leche"){
+    list.getElementsByTagName("li")[2].innerHTML = "Bebida de Avena"; 
+
+  }else if(list.getElementsByTagName("li")[1].innerHTML != "Manzanilla"){
+    list.getElementsByTagName("li")[0].innerHTML = "Nescafe";
+  }
+  
+
+}
+
+
+</script>
+</head>
+
+<body>
+<p><small>Esto es un texto mas pequeno.</small> Esto es una <em>Prueba</em> de HTML </p> 
+ <form action="Controller?op=doAlta" method="POST" >
+   <input type="hidden" id="prodId" name="prodId"  value="xm234jq" />
+   <div id="formulario">
+    <fieldset>
+      <legend>Rellena el formulario&nbsp;</legend>
+      <label>Nombre:</label> <input type="text" id="nombre" required> <br> <br>
+      <label>email:</label> <input type="email" id="email" placeholder="ejemplo@ejemplo.com" > <br> <br>
+      <label>edad:</label> <input type="number" id="edad" min="18" disabled="disabled"> <br><br>
+      <label>Password:</label>  <input type="password" id="pass" required> <br> <br>
+      <label>Fecha Nacimiento:</label> <input type="date" id="fecha"> <br> <br>
+       <br>
+       <button type="button" onclick="javascript:validar();">  Validar Datos </button>
+    </fieldset>
+   </div>
+   <br>
+   <button onclick="javascript:mostrarContenido();">Mostrar contenido del hidden templete</button>   
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button onclick="javascript:mostrarLista();">Mostrar lista</button>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button onclick="javascript:cambiarLista();">Cambiar valores de la Lista</button>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <button onclick="javascript:ocultarTodo();">Ocultar Todo</button>
+    <template > <!--esta etiqueta mantiene oculto su contenido -->
+        <h2>Flores</h2>
+        <img src="img_white_flower.jpg" width="214" height="204" >
+    </template> 
+   <div id="lista" style="display: none;">
+      <h2>El elemento  de la lista(ul)</h2>
+      <ul>
+        <li>Cafe</li>
+        <li>Te</li>
+        <li>Leche</li>
+      </ul>
+          
+   </div>  
+
+ </form>  
+
+</body>
+</html>
